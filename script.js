@@ -67,7 +67,7 @@ function displayProducts() {
                 <h3>${product.name}</h3>
                 ${product.description ? `<p>${product.description.substring(0, 60)}${product.description.length > 60 ? '...' : ''}</p>` : ''}
                 <div class="product-footer">
-                    <div class="product-price">₹${product.price}</div>
+                    <div class="product-price">$${product.price}</div>
                     <button class="btn-delete" onclick="deleteProduct(${product.id})">🗑️</button>
                 </div>
                 <a href="${product.affiliateLink}" target="_blank" class="btn-buy">🛒 Buy on Amazon</a>
