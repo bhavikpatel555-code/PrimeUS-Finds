@@ -3,23 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Product Store</title>
+    <title>My Amazon Affiliate Store</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
         <!-- Header -->
         <header class="header">
-            <h1>My Product Store</h1>
+            <h1>My Amazon Affiliate Store</h1>
             <p>Daily updates with new products</p>
         </header>
 
         <!-- Social Share Links -->
         <div class="social-buttons">
-            <a href="https://www.facebook.com/sharer/sharer.php?u=https://your-website.vercel.app" target="_blank" class="btn btn-facebook">
+            <a href="https://www.facebook.com/sharer/sharer.php?u=https://prime-us-finds.vercel.app" target="_blank" class="btn btn-facebook">
                 📘 Share on Facebook
             </a>
-            <a href="https://pinterest.com/pin/create/button/?url=https://your-website.vercel.app&description=Check%20out%20my%20products!" target="_blank" class="btn btn-pinterest">
+            <a href="https://pinterest.com/pin/create/button/?url=https://prime-us-finds.vercel.app&description=Check%20out%20my%20products!" target="_blank" class="btn btn-pinterest">
                 📌 Share on Pinterest
             </a>
             <a href="#" onclick="alert('Instagram par manually share karo!')" class="btn btn-instagram">
@@ -33,7 +33,7 @@
             <form id="productForm">
                 <div class="form-group">
                     <label>Product Name *</label>
-                    <input type="text" id="productName" placeholder="e.g. Silk Scarf" required>
+                    <input type="text" id="productName" placeholder="e.g. Wide Leg Palazzo Pants" required>
                 </div>
 
                 <div class="form-group">
@@ -50,6 +50,11 @@
                         <label>Image URL</label>
                         <input type="url" id="productImage" placeholder="https://example.com/image.jpg">
                     </div>
+                </div>
+
+                <div class="form-group">
+                    <label>🔗 Amazon Affiliate Link *</label>
+                    <input type="url" id="affiliateLink" placeholder="https://amzn.to/xxxxxxx" required>
                 </div>
 
                 <button type="submit" class="btn btn-submit">➕ Product Add Karo</button>
