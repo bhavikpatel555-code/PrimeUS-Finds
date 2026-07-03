@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Product Store</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>My Product Store</h1>
+            <p>Daily updates with new products</p>
+        </header>
+
+        <!-- Social Share Links -->
+        <div class="social-buttons">
+            <a href="https://www.facebook.com/sharer/sharer.php?u=https://your-website.vercel.app" target="_blank" class="btn btn-facebook">
+                📘 Share on Facebook
+            </a>
+            <a href="https://pinterest.com/pin/create/button/?url=https://your-website.vercel.app&description=Check%20out%20my%20products!" target="_blank" class="btn btn-pinterest">
+                📌 Share on Pinterest
+            </a>
+            <a href="#" onclick="alert('Instagram par manually share karo!')" class="btn btn-instagram">
+                📷 Share on Instagram
+            </a>
+        </div>
+
+        <!-- Add Product Form -->
+        <div class="form-container">
+            <h2>➕ Navi Product Add Karo</h2>
+            <form id="productForm">
+                <div class="form-group">
+                    <label>Product Name *</label>
+                    <input type="text" id="productName" placeholder="e.g. Silk Scarf" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Description</label>
+                    <textarea id="productDesc" placeholder="Product ke baare mein likho..."></textarea>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Price (₹) *</label>
+                        <input type="number" id="productPrice" placeholder="₹ 500" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Image URL</label>
+                        <input type="url" id="productImage" placeholder="https://example.com/image.jpg">
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-submit">➕ Product Add Karo</button>
+            </form>
+        </div>
+
+        <!-- Products Display -->
+        <div class="products-section">
+            <h2 id="productCount">0 Products</h2>
+            <div class="products-grid" id="productsGrid">
+                <div class="empty-state">
+                    <p>Koi product nahi. Upper form se add karo!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
