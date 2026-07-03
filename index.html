@@ -1,42 +1,80 @@
-<!-- SHOPPING GRID CONTAINER -->
-<div class="products-grid">
-  
-  <!-- PRODUCT CARD 1 -->
-  <div class="product-card">
-    <div class="badge">Best Seller</div>
-    <div class="img-box">
-      <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff" alt="Product Name">
-    </div>
-    <div class="product-info">
-      <h3>Premium Heavy Duty Laundry Hamper</h3>
-      <p class="desc">Collapsible clothes basket with durable handles, perfect for home organization.</p>
-      <div class="price-section">
-        <span class="current-price">$24.99</span>
-        <span class="old-price">$35.00</span>
-      </div>
-      <!-- USA Affiliate Link -->
-      <a href="TAMARI_AMAZON_US_AFFILIATE_LINK" target="_blank" rel="noopener noreferrer" class="buy-btn">
-        Check Price on Amazon
-      </a>
-    </div>
-  </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PrimeUS Finds</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-  <!-- PRODUCT CARD 2 -->
-  <div class="product-card">
-    <div class="badge">Trending</div>
-    <div class="img-box">
-      <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f" alt="Product Name">
-    </div>
-    <div class="product-info">
-      <h3>Mineral Sunscreen SPF 50+</h3>
-      <p class="desc">Broad spectrum, water-resistant daily protection sunscreen for sensitive skin.</p>
-      <div class="price-section">
-        <span class="current-price">$18.95</span>
-      </div>
-      <a href="TAMARI_AMAZON_US_AFFILIATE_LINK" target="_blank" rel="noopener noreferrer" class="buy-btn">
-        Check Price on Amazon
-      </a>
-    </div>
-  </div>
+    <!-- Header Section -->
+    <header class="site-header">
+        <div class="header-container">
+            <h1 class="logo-text">PrimeUS <span>Finds</span></h1>
+            <p class="tagline">A small curated shelf of things worth buying on Amazon</p>
+        </div>
+    </header>
 
-</div>
+    <!-- Main Content Container -->
+    <main class="main-container">
+        
+        <!-- Social Share & Action Bar -->
+        <div class="action-bar">
+            <div class="share-box">
+                <span>Share this shelf:</span>
+                <a href="https://pinterest.com" target="_blank" class="share-link pin">Pinterest</a>
+                <a href="https://facebook.com" target="_blank" class="share-link fb">Facebook</a>
+            </div>
+        </div>
+
+        <!-- PRODUCT GRID START -->
+        <section class="products-grid">
+            
+            <!-- PRODUCT CARD 1 -->
+            <div class="product-card">
+                <span class="badge">Trending</span>
+                <div class="img-box">
+                    <!-- Image automatic responsive thase, aakhi screen nahi roke -->
+                    <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff" alt="Product Image">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Premium Heavy Duty Laundry Hamper</h3>
+                    <p class="product-desc">Collapsible clothes basket with durable handles, perfect for home organization.</p>
+                    <div class="price-section">
+                        <span class="current-price">$24.99</span>
+                        <span class="old-price">$35.00</span>
+                    </div>
+                    <a href="#" target="_blank" class="amazon-btn">Check Price on Amazon</a>
+                </div>
+            </div>
+
+            <!-- PRODUCT CARD 2 -->
+            <div class="product-card">
+                <span class="badge">Best Seller</span>
+                <div class="img-box">
+                    <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f" alt="Product Image">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Mineral Sunscreen SPF 50+</h3>
+                    <p class="product-desc">Broad spectrum, water-resistant daily protection sunscreen for sensitive skin.</p>
+                    <div class="price-section">
+                        <span class="current-price">$18.95</span>
+                    </div>
+                    <a href="#" target="_blank" class="amazon-btn">Check Price on Amazon</a>
+                </div>
+            </div>
+
+        </section>
+        <!-- PRODUCT GRID END -->
+
+    </main>
+
+    <!-- Footer Disclaimer for USA Market -->
+    <footer class="site-footer">
+        <p>Prices shown are for reference — always confirm the current price on Amazon before buying.</p>
+        <p class="ftc-disclaimer">As an Amazon Associate I earn from qualifying purchases.</p>
+    </footer>
+
+</body>
+</html>
