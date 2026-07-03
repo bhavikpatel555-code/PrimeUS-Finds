@@ -3,427 +3,126 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PrimeUS Finds — Premium Curated Amazon Shelf</title>
+    <title>Prime US Finds</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <style>
-        :root {
-            --bg-global: #f4f6f8;
-            --theme-dark: #131921;
-            --accent-gold: #ffd814;
-            --accent-gold-hover: #f7ca00;
-            --price-color: #b12704;
-            --text-main: #111111;
-            --text-muted: #565959;
-            --border-color: #e2e8f0;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-        }
-
-        body {
-            background-color: var(--bg-global);
-            color: var(--text-main);
-            padding-bottom: 60px;
-        }
-
-        /* PREMIUM HEADER & BIGGER LOGO */
-        .site-header {
-            background-color: var(--theme-dark);
-            color: white;
-            padding: 35px 20px;
-            text-align: center;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        }
-
-        .logo-container {
-            margin-bottom: 12px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        /* LOGO SIZE INCREMENT FIX */
-        .logo-container img {
-            max-height: 110px; /* Logo moti karva mate size vadhari che */
-            width: auto;
-            object-fit: contain;
-            transition: transform 0.3s;
-        }
-
-        .tagline {
-            font-size: 15px;
-            color: #cbd5e1;
-            font-weight: 300;
-            letter-spacing: 0.5px;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        /* MAIN APP WRAPPER */
-        .main-wrapper {
-            max-width: 1280px;
-            margin: 30px auto;
-            padding: 0 20px;
-            display: grid;
-            grid-template-columns: 340px 1fr;
-            gap: 30px;
-        }
-
-        /* BACKEND ADMIM FORM */
-        .admin-sidebar {
-            background: #ffffff;
-            padding: 25px;
-            border-radius: 16px;
-            border: 1px solid var(--border-color);
-            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
-            height: fit-content;
-            position: sticky;
-            top: 25px;
-        }
-
-        .admin-sidebar h2 {
-            font-size: 18px;
-            font-weight: 700;
-            margin-bottom: 20px;
-            color: var(--theme-dark);
-            border-bottom: 2px solid var(--bg-global);
-            padding-bottom: 10px;
-        }
-
-        .form-group {
-            margin-bottom: 15px;
-        }
-
-        .form-group label {
-            display: block;
-            font-size: 13px;
-            font-weight: 600;
-            margin-bottom: 6px;
-            color: #475569;
-        }
-
-        .form-group input, .form-group textarea {
-            width: 100%;
-            padding: 11px 14px;
-            border: 1px solid #cbd5e1;
-            border-radius: 8px;
-            font-size: 14px;
-            outline: none;
-            background: #f8fafc;
-            transition: all 0.2s ease;
-        }
-
-        .form-group input:focus, .form-group textarea:focus {
-            border-color: var(--theme-dark);
-            background: #ffffff;
-            box-shadow: 0 0 0 3px rgba(19, 25, 33, 0.08);
-        }
-
-        .btn-submit {
-            width: 100%;
-            background: var(--theme-dark);
-            color: white;
-            border: none;
-            padding: 13px;
-            border-radius: 8px;
-            font-weight: 600;
-            cursor: pointer;
-            font-size: 14px;
-            transition: background 0.2s;
-            margin-top: 10px;
-        }
-
-        .btn-submit:hover {
-            background: #000000;
-        }
-
-        /* LUXURY GRID DISPLAY */
-        .shelf-section {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        .shelf-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 2px solid #e2e8f0;
-            padding-bottom: 12px;
-        }
-
-        .shelf-title {
-            font-size: 22px;
-            font-weight: 700;
-            color: var(--theme-dark);
-        }
-
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
-            gap: 25px;
-        }
-
-        /* MODERN CARD DESIGN */
-        .product-card {
-            background: #ffffff;
-            border-radius: 14px;
-            border: 1px solid var(--border-color);
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            position: relative;
-            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s;
-        }
-
-        .product-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-        }
-
-        .badge {
-            position: absolute;
-            top: 14px;
-            left: 14px;
-            background: #e06666;
-            color: white;
-            padding: 4px 10px;
-            font-size: 11px;
-            font-weight: 700;
-            border-radius: 6px;
-            text-transform: uppercase;
-            z-index: 5;
-            letter-spacing: 0.5px;
-        }
-
-        /* CONSTANT IMAGE PROTECTION */
-        .image-box {
-            width: 100%;
-            height: 240px;
-            background: #ffffff;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-            border-bottom: 1px solid #f1f5f9;
-        }
-
-        .image-box img {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain; /* Image stretch nahi thava de */
-        }
-
-        .details-box {
-            padding: 18px;
-            display: flex;
-            flex-direction: column;
-            flex-grow: 1;
-        }
-
-        .product-title {
-            font-size: 15px;
-            font-weight: 600;
-            color: var(--text-main);
-            margin-bottom: 8px;
-            line-height: 1.4;
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-        }
-
-        .product-desc {
-            font-size: 13px;
-            color: var(--text-muted);
-            margin-bottom: 16px;
-            line-height: 1.4;
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-        }
-
-        .price-wrapper {
-            margin-top: auto;
-            margin-bottom: 14px;
-        }
-
-        .price-tag {
-            font-size: 22px;
-            font-weight: 700;
-            color: var(--price-color);
-        }
-
-        /* PREMIUM BUTTON WITH AMAZON LOOK */
-        .btn-amazon {
-            background: var(--accent-gold);
-            border: 1px solid #fcd200;
-            color: #0f1111;
-            text-align: center;
-            padding: 11px;
-            border-radius: 100px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 13px;
-            transition: background 0.1s;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-        }
-
-        .btn-amazon:hover {
-            background: var(--accent-gold-hover);
-        }
-
-        /* FOOTER BRAND DISCLAIMER */
-        .site-footer {
-            background: #ffffff;
-            text-align: center;
-            padding: 40px 20px;
-            margin-top: 80px;
-            border-top: 1px solid var(--border-color);
-            font-size: 13px;
-            color: var(--text-muted);
-        }
-
-        .ftc-note {
-            font-size: 11px;
-            color: #94a3b8;
-            margin-top: 10px;
-        }
-
-        /* RESPONSIVE LAYOUT CONTROL */
-        @media (max-width: 900px) {
-            .main-wrapper {
-                grid-template-columns: 1fr;
-            }
-            .admin-sidebar {
-                position: relative;
-                top: 0;
-            }
-            .logo-container img {
-                max-height: 90px;
-            }
-        }
+        /* Custom font color matching the aesthetic */
+        .brand-dark { color: #2B3321; }
+        .brand-bg-dark { background-color: #5B634E; }
     </style>
 </head>
-<body>
+<body class="bg-[#FAF9F5] text-gray-800 font-sans">
 
-    <!-- DARK LUXE HEADER SECTION -->
-    <header class="site-header">
-        <div class="logo-container">
-            <!-- Tamari 'logo.png' sarki size ma load thase ahiya -->
-            <img src="logo.png" alt="PrimeUS Finds">
-        </div>
-        <p class="tagline">A small curated shelf of things worth buying on Amazon</p>
-    </header>
-
-    <div class="main-wrapper">
-        
-        <!-- SIDEBAR PRODUCT ADD FORM -->
-        <aside class="admin-sidebar">
-            <h2>Add New Find</h2>
-            <form id="shelfForm">
-                <div class="form-group">
-                    <label>Product Title</label>
-                    <input type="text" id="title" placeholder="e.g., Heavy Duty Laundry Basket" required>
-                </div>
-                <div class="form-group">
-                    <label>Amazon Affiliate Link</label>
-                    <input type="url" id="url" placeholder="https://amazon.com/dp/..." required>
-                </div>
-                <div class="form-group">
-                    <label>Image Direct Link</label>
-                    <input type="url" id="image" placeholder="Paste image address URL" required>
-                </div>
-                <div class="form-group">
-                    <label>Price ($)</label>
-                    <input type="text" id="price" placeholder="e.g., 24.99" required>
-                </div>
-                <div class="form-group">
-                    <label>Badge</label>
-                    <input type="text" id="badge" placeholder="Best Seller / Trending">
-                </div>
-                <div class="form-group">
-                    <label>Product Description</label>
-                    <textarea id="desc" rows="3" placeholder="Quick neat description..." required></textarea>
-                </div>
-                <button type="submit" class="btn-submit">Add to Product Shelf</button>
-            </form>
-        </aside>
-
-        <!-- SHELF COLLECTIONS DISPLAY GRID -->
-        <main class="shelf-section">
-            <div class="shelf-header">
-                <h2 class="shelf-title">Trending US Finds</h2>
-            </div>
-            
-            <div class="product-grid" id="productGrid">
-                
-                <!-- PRE-LOADED DEMO PRODUCT CARD -->
-                <div class="product-card">
-                    <span class="badge">Best Seller</span>
-                    <div class="image-box">
-                        <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff" alt="Demo Product">
-                    </div>
-                    <div class="details-box">
-                        <h3 class="product-title">Premium Heavy Duty Laundry Hamper</h3>
-                        <p class="product-desc">Collapsible clothes basket with durable handles, perfect for home organization.</p>
-                        <div class="price-wrapper">
-                            <span class="price-tag">$24.99</span>
-                        </div>
-                        <a href="#" target="_blank" class="btn-amazon">Check Price on Amazon</a>
-                    </div>
-                </div>
-
-            </div>
-        </main>
+    <!-- 1. Top Announcement Bar -->
+    <div class="brand-bg-dark text-white text-xs tracking-widest text-center py-2 uppercase font-medium">
+        Discover Premium Finds & Top Deals Every Day
     </div>
 
-    <!-- USA AFFILIATE STANDARD FOOTER -->
-    <footer class="site-footer">
-        <p>Prices shown are for reference — always confirm the current price on Amazon before buying.</p>
-        <p class="ftc-note">As an Amazon Associate I earn from qualifying purchases.</p>
-    </footer>
+    <!-- 2. Header / Navigation -->
+    <header class="border-b border-gray-200 sticky top-0 bg-[#FAF9F5]/95 backdrop-blur-sm z-50">
+        <div class="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
+            <!-- Left Menu Links -->
+            <nav class="hidden md:flex space-x-6 text-xs uppercase tracking-wider font-semibold text-gray-600">
+                <a href="#" class="hover:text-black">Home</a>
+                <a href="#" class="hover:text-black">Best Sellers</a>
+                <a href="#" class="hover:text-black">Home Decor</a>
+                <a href="#" class="hover:text-black">About</a>
+            </nav>
 
-    <!-- INTERACTIVE FORM SCRIPT -->
-    <script>
-        document.getElementById('shelfForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const title = document.getElementById('title').value;
-            const url = document.getElementById('url').value;
-            const image = document.getElementById('image').value;
-            const price = document.getElementById('price').value;
-            const badge = document.getElementById('badge').value;
-            const desc = document.getElementById('desc').value;
+            <!-- Center Logo -->
+            <div class="text-xl md:text-2xl font-serif font-bold tracking-tight text-center flex-1 md:flex-none">
+                <a href="#" class="brand-dark">PRIME US FINDS</a>
+            </div>
 
-            const grid = document.getElementById('productGrid');
-            const card = document.createElement('div');
-            card.className = 'product-card';
+            <!-- Right Icons -->
+            <div class="flex items-center space-x-4 text-gray-600">
+                <button class="hover:text-black">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.604 10.604Z" />
+                    </svg>
+                </button>
+                <button class="hover:text-black">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
 
-            let badgeHtml = badge ? `<span class="badge">${badge}</span>` : '';
+    <!-- 3. Hero Section (Step Into Summer style) -->
+    <section class="relative h-[70vh] md:h-[85vh] bg-gray-300">
+        <!-- background image placeholders માટે unsplash વાપરેલ છે, તમે તમારા ફોટા ઉમેરી શકો -->
+        <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?q=80&w=1200" alt="Hero Background" class="w-full h-full object-cover">
+        <div class="absolute inset-0 bg-black/20 flex flex-col items-center justify-center text-center px-4">
+            <h1 class="text-4xl md:text-6xl text-white font-serif font-light mb-6 tracking-wide drop-shadow-sm">
+                Step Into Premium Style
+            </h1>
+            <div class="flex space-x-4">
+                <a href="#" class="brand-bg-dark text-white text-xs tracking-widest font-semibold px-6 py-3 uppercase hover:bg-opacity-90 transition">
+                    Shop Organizers
+                </a>
+                <a href="#" class="brand-bg-dark text-white text-xs tracking-widest font-semibold px-6 py-3 uppercase hover:bg-opacity-90 transition">
+                    Trending Finds
+                </a>
+            </div>
+        </div>
+    </section>
 
-            card.innerHTML = `
-                ${badgeHtml}
-                <div class="image-box">
-                    <img src="${image}" alt="${title}">
+    <!-- 4. Two-Column Category Grid -->
+    <section class="max-w-7xl mx-auto px-4 py-12">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- Left Card -->
+            <div class="relative h-[500px] overflow-hidden group">
+                <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?q=80&w=600" alt="New Finds" class="w-full h-full object-cover transition duration-500 group-hover:scale-105">
+                <div class="absolute inset-0 bg-black/15 flex flex-col items-center justify-center text-center">
+                    <h2 class="text-3xl text-white font-serif mb-4">New Home Finds</h2>
+                    <a href="#" class="bg-white text-gray-900 text-xs tracking-widest font-semibold px-6 py-3 uppercase hover:bg-gray-100 transition">
+                        Shop Now
+                    </a>
                 </div>
-                <div class="details-box">
-                    <h3 class="product-title">${title}</h3>
-                    <p class="product-desc">${desc}</p>
-                    <div class="price-wrapper">
-                        <span class="price-tag">$${price}</span>
-                    </div>
-                    <a href="${url}" target="_blank" class="btn-amazon">Check Price on Amazon</a>
+            </div>
+            <!-- Right Card -->
+            <div class="relative h-[500px] overflow-hidden group">
+                <img src="https://images.unsplash.com/photo-1523293182086-7651a899d37f?q=80&w=600" alt="Must Haves" class="w-full h-full object-cover transition duration-500 group-hover:scale-105">
+                <div class="absolute inset-0 bg-black/15 flex flex-col items-center justify-center text-center">
+                    <h2 class="text-3xl text-white font-serif mb-4">Daily Must-Haves</h2>
+                    <a href="#" class="bg-white text-gray-900 text-xs tracking-widest font-semibold px-6 py-3 uppercase hover:bg-gray-100 transition">
+                        Shop Now
+                    </a>
                 </div>
-            `;
+            </div>
+        </div>
+    </section>
 
-            grid.insertBefore(card, grid.firstChild);
-            document.getElementById('shelfForm').reset();
-        });
-    </script>
+    <!-- 5. Brand Intro Text Section -->
+    <section class="max-w-3xl mx-auto text-center px-4 py-16">
+        <h3 class="text-xl md:text-2xl font-serif text-gray-800 mb-4 tracking-wide">
+            Handpicked, premium, and distinctively curated.
+        </h3>
+        <p class="text-gray-600 text-sm leading-relaxed mb-6">
+            We scour the internet to bring you the highest-rated product discoveries and everyday essentials. Crafted to elevate your lifestyle with products that stand the test of quality and functionality.
+        </p>
+        <a href="#" class="brand-bg-dark text-white text-xs tracking-widest font-semibold px-6 py-3 uppercase hover:bg-opacity-90 transition inline-block">
+            Read Our Promise
+        </a>
+    </section>
+
+    <!-- 6. Bottom Grid Placeholder (Products) -->
+    <section class="max-w-7xl mx-auto px-4 pb-20">
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+            <div class="aspect-square bg-gray-200 overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1544816155-12df9643f363?q=80&w=400" alt="product" class="w-full h-full object-cover hover:opacity-90 transition">
+            </div>
+            <div class="aspect-square bg-gray-200 overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=400" alt="product" class="w-full h-full object-cover hover:opacity-90 transition">
+            </div>
+            <div class="aspect-square bg-gray-200 overflow-hidden col-span-2 md:col-span-1">
+                <img src="https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?q=80&w=400" alt="product" class="w-full h-full object-cover hover:opacity-90 transition">
+            </div>
+        </div>
+    </section>
+
 </body>
 </html>
