@@ -3,14 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PrimeUS Finds — Curated Amazon Picks</title>
+    <title>PrimeUS Finds — Premium Curated Amazon Shelf</title>
     <style>
         :root {
-            --bg-primary: #f8f9fa;
-            --accent-color: #ff9900;
+            --bg-global: #f4f6f8;
+            --theme-dark: #131921;
+            --accent-gold: #ffd814;
+            --accent-gold-hover: #f7ca00;
+            --price-color: #b12704;
             --text-main: #111111;
             --text-muted: #565959;
-            --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            --border-color: #e2e8f0;
         }
 
         * {
@@ -21,66 +24,77 @@
         }
 
         body {
-            background-color: var(--bg-primary);
+            background-color: var(--bg-global);
             color: var(--text-main);
-            line-height: 1.5;
+            padding-bottom: 60px;
         }
 
-        /* PREMIUM HEADER */
-        .header {
-            background: #ffffff;
-            padding: 40px 20px;
+        /* PREMIUM HEADER & BIGGER LOGO */
+        .site-header {
+            background-color: var(--theme-dark);
+            color: white;
+            padding: 35px 20px;
             text-align: center;
-            border-bottom: 1px solid #e2e8f0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
 
         .logo-container {
             margin-bottom: 12px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
+        /* LOGO SIZE INCREMENT FIX */
         .logo-container img {
-            max-height: 55px;
+            max-height: 110px; /* Logo moti karva mate size vadhari che */
             width: auto;
             object-fit: contain;
+            transition: transform 0.3s;
         }
 
         .tagline {
             font-size: 15px;
-            color: var(--text-muted);
-            max-width: 500px;
+            color: #cbd5e1;
+            font-weight: 300;
+            letter-spacing: 0.5px;
+            max-width: 600px;
             margin: 0 auto;
         }
 
-        /* MAIN WRAPPER */
-        .container {
-            max-width: 1200px;
-            margin: 40px auto;
+        /* MAIN APP WRAPPER */
+        .main-wrapper {
+            max-width: 1280px;
+            margin: 30px auto;
             padding: 0 20px;
             display: grid;
-            grid-template-columns: 320px 1fr;
-            gap: 40px;
+            grid-template-columns: 340px 1fr;
+            gap: 30px;
         }
 
-        /* LEFT SIDEBAR: BACKEND FORM */
-        .sidebar-form {
+        /* BACKEND ADMIM FORM */
+        .admin-sidebar {
             background: #ffffff;
-            padding: 24px;
+            padding: 25px;
             border-radius: 16px;
-            border: 1px solid #e2e8f0;
-            box-shadow: var(--card-shadow);
+            border: 1px solid var(--border-color);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
             height: fit-content;
             position: sticky;
-            top: 20px;
+            top: 25px;
         }
 
-        .sidebar-form h2 {
+        .admin-sidebar h2 {
             font-size: 18px;
-            margin-bottom: 20px;
             font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--theme-dark);
+            border-bottom: 2px solid var(--bg-global);
+            padding-bottom: 10px;
         }
 
         .form-group {
-            margin-bottom: 16px;
+            margin-bottom: 15px;
         }
 
         .form-group label {
@@ -88,95 +102,107 @@
             font-size: 13px;
             font-weight: 600;
             margin-bottom: 6px;
-            color: #4a5568;
+            color: #475569;
         }
 
         .form-group input, .form-group textarea {
             width: 100%;
-            padding: 10px 12px;
+            padding: 11px 14px;
             border: 1px solid #cbd5e1;
             border-radius: 8px;
             font-size: 14px;
             outline: none;
-            transition: border 0.2s;
+            background: #f8fafc;
+            transition: all 0.2s ease;
         }
 
         .form-group input:focus, .form-group textarea:focus {
-            border-color: var(--accent-color);
+            border-color: var(--theme-dark);
+            background: #ffffff;
+            box-shadow: 0 0 0 3px rgba(19, 25, 33, 0.08);
         }
 
         .btn-submit {
             width: 100%;
-            background: #232f3e;
+            background: var(--theme-dark);
             color: white;
             border: none;
-            padding: 12px;
+            padding: 13px;
             border-radius: 8px;
             font-weight: 600;
             cursor: pointer;
             font-size: 14px;
             transition: background 0.2s;
+            margin-top: 10px;
         }
 
         .btn-submit:hover {
-            background: #131a22;
+            background: #000000;
         }
 
-        /* RIGHT SIDEBAR: PRODUCT GRID */
+        /* LUXURY GRID DISPLAY */
         .shelf-section {
             display: flex;
             flex-direction: column;
-            gap: 24px;
+            gap: 20px;
+        }
+
+        .shelf-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 12px;
         }
 
         .shelf-title {
             font-size: 22px;
             font-weight: 700;
-            border-bottom: 2px solid #e2e8f0;
-            padding-bottom: 10px;
+            color: var(--theme-dark);
         }
 
-        .grid {
+        .product-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-            gap: 24px;
+            grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+            gap: 25px;
         }
 
-        /* PRODUCT CARD FIX */
-        .card {
+        /* MODERN CARD DESIGN */
+        .product-card {
             background: #ffffff;
-            border-radius: 12px;
-            border: 1px solid #e2e8f0;
+            border-radius: 14px;
+            border: 1px solid var(--border-color);
             overflow: hidden;
             display: flex;
             flex-direction: column;
             position: relative;
-            transition: transform 0.2s, box-shadow 0.2s;
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s;
         }
 
-        .card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--card-shadow);
+        .product-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
         }
 
         .badge {
             position: absolute;
-            top: 12px;
-            left: 12px;
-            background: #232f3e;
+            top: 14px;
+            left: 14px;
+            background: #e06666;
             color: white;
-            padding: 4px 8px;
+            padding: 4px 10px;
             font-size: 11px;
-            font-weight: bold;
-            border-radius: 4px;
+            font-weight: 700;
+            border-radius: 6px;
             text-transform: uppercase;
             z-index: 5;
+            letter-spacing: 0.5px;
         }
 
-        /* CRITICAL PHOTO CONTAINER FIX */
-        .image-container {
+        /* CONSTANT IMAGE PROTECTION */
+        .image-box {
             width: 100%;
-            height: 220px;
+            height: 240px;
             background: #ffffff;
             display: flex;
             align-items: center;
@@ -185,148 +211,168 @@
             border-bottom: 1px solid #f1f5f9;
         }
 
-        .image-container img {
+        .image-box img {
             max-width: 100%;
             max-height: 100%;
-            object-fit: contain; /* Image kyarey block ke stretch nahi thay */
+            object-fit: contain; /* Image stretch nahi thava de */
         }
 
-        .info {
-            padding: 16px;
+        .details-box {
+            padding: 18px;
             display: flex;
             flex-direction: column;
             flex-grow: 1;
         }
 
-        .title {
+        .product-title {
             font-size: 15px;
             font-weight: 600;
             color: var(--text-main);
-            margin-bottom: 6px;
+            margin-bottom: 8px;
             line-height: 1.4;
-        }
-
-        .description {
-            font-size: 13px;
-            color: var(--text-muted);
-            margin-bottom: 16px;
             display: -webkit-box;
             -webkit-line-clamp: 2;
             -webkit-box-orient: vertical;
             overflow: hidden;
         }
 
-        .price-row {
+        .product-desc {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-bottom: 16px;
+            line-height: 1.4;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .price-wrapper {
             margin-top: auto;
-            margin-bottom: 12px;
+            margin-bottom: 14px;
         }
 
-        .price {
-            font-size: 20px;
+        .price-tag {
+            font-size: 22px;
             font-weight: 700;
-            color: #b12704;
+            color: var(--price-color);
         }
 
+        /* PREMIUM BUTTON WITH AMAZON LOOK */
         .btn-amazon {
-            background: #ffd814;
+            background: var(--accent-gold);
             border: 1px solid #fcd200;
             color: #0f1111;
             text-align: center;
-            padding: 10px;
+            padding: 11px;
             border-radius: 100px;
             text-decoration: none;
-            font-weight: 500;
+            font-weight: 600;
             font-size: 13px;
             transition: background 0.1s;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
         }
 
         .btn-amazon:hover {
-            background: #f7ca00;
+            background: var(--accent-gold-hover);
         }
 
-        /* FOOTER */
-        .footer {
+        /* FOOTER BRAND DISCLAIMER */
+        .site-footer {
             background: #ffffff;
             text-align: center;
             padding: 40px 20px;
-            margin-top: 60px;
-            border-top: 1px solid #e2e8f0;
+            margin-top: 80px;
+            border-top: 1px solid var(--border-color);
             font-size: 13px;
             color: var(--text-muted);
         }
 
-        /* RESPONSIVE LAYOUT FOR MOBILE */
-        @media (max-width: 850px) {
-            .container {
+        .ftc-note {
+            font-size: 11px;
+            color: #94a3b8;
+            margin-top: 10px;
+        }
+
+        /* RESPONSIVE LAYOUT CONTROL */
+        @media (max-width: 900px) {
+            .main-wrapper {
                 grid-template-columns: 1fr;
             }
-            .sidebar-form {
+            .admin-sidebar {
                 position: relative;
                 top: 0;
+            }
+            .logo-container img {
+                max-height: 90px;
             }
         }
     </style>
 </head>
 <body>
 
-    <header class="header">
+    <!-- DARK LUXE HEADER SECTION -->
+    <header class="site-header">
         <div class="logo-container">
-            <!-- E-commerce look logo option -->
+            <!-- Tamari 'logo.png' sarki size ma load thase ahiya -->
             <img src="logo.png" alt="PrimeUS Finds">
         </div>
         <p class="tagline">A small curated shelf of things worth buying on Amazon</p>
     </header>
 
-    <div class="container">
+    <div class="main-wrapper">
         
-        <!-- SIDEBAR BACKEND FORM -->
-        <aside class="sidebar-form">
+        <!-- SIDEBAR PRODUCT ADD FORM -->
+        <aside class="admin-sidebar">
             <h2>Add New Find</h2>
-            <form id="productForm">
+            <form id="shelfForm">
                 <div class="form-group">
                     <label>Product Title</label>
                     <input type="text" id="title" placeholder="e.g., Heavy Duty Laundry Basket" required>
                 </div>
                 <div class="form-group">
-                    <label>Amazon Affiliate URL</label>
-                    <input type="url" id="url" placeholder="https://amazon.com/..." required>
+                    <label>Amazon Affiliate Link</label>
+                    <input type="url" id="url" placeholder="https://amazon.com/dp/..." required>
                 </div>
                 <div class="form-group">
-                    <label>Direct Image URL</label>
-                    <input type="url" id="image" placeholder="Paste image link here" required>
+                    <label>Image Direct Link</label>
+                    <input type="url" id="image" placeholder="Paste image address URL" required>
                 </div>
                 <div class="form-group">
                     <label>Price ($)</label>
-                    <input type="text" id="price" placeholder="24.99" required>
+                    <input type="text" id="price" placeholder="e.g., 24.99" required>
                 </div>
                 <div class="form-group">
                     <label>Badge</label>
                     <input type="text" id="badge" placeholder="Best Seller / Trending">
                 </div>
                 <div class="form-group">
-                    <label>Description</label>
-                    <textarea id="desc" rows="3" placeholder="Short review..." required></textarea>
+                    <label>Product Description</label>
+                    <textarea id="desc" rows="3" placeholder="Quick neat description..." required></textarea>
                 </div>
-                <button type="submit" class="btn-submit">Add to Grid</button>
+                <button type="submit" class="btn-submit">Add to Product Shelf</button>
             </form>
         </aside>
 
-        <!-- PRODUCT SHELF -->
+        <!-- SHELF COLLECTIONS DISPLAY GRID -->
         <main class="shelf-section">
-            <h2 class="shelf-title">Featured Collections</h2>
-            <div class="grid" id="productGrid">
+            <div class="shelf-header">
+                <h2 class="shelf-title">Trending US Finds</h2>
+            </div>
+            
+            <div class="product-grid" id="productGrid">
                 
-                <!-- PRE-ADDED SAMPLE PRODUCT -->
-                <div class="card">
+                <!-- PRE-LOADED DEMO PRODUCT CARD -->
+                <div class="product-card">
                     <span class="badge">Best Seller</span>
-                    <div class="image-container">
-                        <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff" alt="Sample Product">
+                    <div class="image-box">
+                        <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff" alt="Demo Product">
                     </div>
-                    <div class="info">
-                        <h3 class="title">Premium Heavy Duty Laundry Hamper</h3>
-                        <p class="description">Collapsible clothes basket with durable handles, perfect for home organization.</p>
-                        <div class="price-row">
-                            <span class="price">$24.99</span>
+                    <div class="details-box">
+                        <h3 class="product-title">Premium Heavy Duty Laundry Hamper</h3>
+                        <p class="product-desc">Collapsible clothes basket with durable handles, perfect for home organization.</p>
+                        <div class="price-wrapper">
+                            <span class="price-tag">$24.99</span>
                         </div>
                         <a href="#" target="_blank" class="btn-amazon">Check Price on Amazon</a>
                     </div>
@@ -336,13 +382,15 @@
         </main>
     </div>
 
-    <footer class="footer">
+    <!-- USA AFFILIATE STANDARD FOOTER -->
+    <footer class="site-footer">
         <p>Prices shown are for reference — always confirm the current price on Amazon before buying.</p>
-        <p style="font-size:11px; margin-top:8px;">As an Amazon Associate I earn from qualifying purchases.</p>
+        <p class="ftc-note">As an Amazon Associate I earn from qualifying purchases.</p>
     </footer>
 
+    <!-- INTERACTIVE FORM SCRIPT -->
     <script>
-        document.getElementById('productForm').addEventListener('submit', function(e) {
+        document.getElementById('shelfForm').addEventListener('submit', function(e) {
             e.preventDefault();
             
             const title = document.getElementById('title').value;
@@ -354,27 +402,27 @@
 
             const grid = document.getElementById('productGrid');
             const card = document.createElement('div');
-            card.className = 'card';
+            card.className = 'product-card';
 
             let badgeHtml = badge ? `<span class="badge">${badge}</span>` : '';
 
             card.innerHTML = `
                 ${badgeHtml}
-                <div class="image-container">
+                <div class="image-box">
                     <img src="${image}" alt="${title}">
                 </div>
-                <div class="info">
-                    <h3 class="title">${title}</h3>
-                    <p class="description">${desc}</p>
-                    <div class="price-row">
-                        <span class="price">$${price}</span>
+                <div class="details-box">
+                    <h3 class="product-title">${title}</h3>
+                    <p class="product-desc">${desc}</p>
+                    <div class="price-wrapper">
+                        <span class="price-tag">$${price}</span>
                     </div>
                     <a href="${url}" target="_blank" class="btn-amazon">Check Price on Amazon</a>
                 </div>
             `;
 
             grid.insertBefore(card, grid.firstChild);
-            document.getElementById('productForm').reset();
+            document.getElementById('shelfForm').reset();
         });
     </script>
 </body>
