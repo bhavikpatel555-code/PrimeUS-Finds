@@ -18,7 +18,7 @@ async function loadProducts() {
     rows.forEach((row) => {
       const title = row.c[0]?.v || "Product";
       const image = row.c[1]?.v || "https://picsum.photos/500";
-      const link = (row.c[2]?.v || "#").trim();
+      const link = row.c[2]?.v || "#";
       const price = row.c[3]?.v || "Check Amazon";
 
       grid.innerHTML += `
@@ -27,7 +27,7 @@ async function loadProducts() {
           <div class="card-content">
             <h3>${title}</h3>
             <p class="price">${price}</p>
-            <a href="${link}" target="_blank" rel="noopener noreferrer" class="btn">
+            <a href="${link}" target="_blank" class="btn">
               View on Amazon
             </a>
           </div>
@@ -36,7 +36,7 @@ async function loadProducts() {
     });
 
   } catch (error) {
-    console.error(error);
+    console.error("Error:", error);
     grid.innerHTML =
       "<h3 style='text-align:center'>Products failed to load</h3>";
   }
