@@ -19,14 +19,18 @@ async function loadProducts() {
       const title = row.c[0]?.v || "Product";
       const image = row.c[1]?.v || "https://picsum.photos/500";
       const link = row.c[2]?.v || "#";
-      const price = row.c[3]?.v ? "$" + row.c[3].v : "Check Amazon";
+
+      let price = row.c[3]?.v || "";
+      if (price && !String(price).includes("$")) {
+        price = "$" + price;
+      }
 
       grid.innerHTML += `
         <div class="card">
           <img src="${image}" alt="${title}">
           <div class="card-content">
             <h3>${title}</h3>
-            <p class="price">${price}</p>
+            <p class="price">${price || "Check Amazon"}</p>
             <a href="${link}" target="_blank" class="btn">
               View on Amazon
             </a>
@@ -36,7 +40,7 @@ async function loadProducts() {
     });
 
   } catch (error) {
-    console.error("Error:", error);
+    console.error(error);
     grid.innerHTML =
       "<h3 style='text-align:center'>Products failed to load</h3>";
   }
