@@ -50,15 +50,19 @@ border-radius:8px;
 nav{
 background:white;
 padding:12px;
-text-align:center;
+display:flex;
+overflow-x:auto;
+white-space:nowrap;
+gap:20px;
 border-bottom:1px solid #ddd;
 }
 
 nav a{
 text-decoration:none;
-margin:0 12px;
 font-weight:bold;
 color:#333;
+flex-shrink:0;
+}
 }
 
 nav a:hover{
