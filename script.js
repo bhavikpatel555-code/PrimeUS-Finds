@@ -22,7 +22,7 @@ async function loadProducts() {
       const link = row.c[2]?.v || "#";
 
       const priceValue = row.c[3]?.v;
-      const price = priceValue ? "$" + priceValue : "Check Amazon";
+      const price = row.c[3]?.f || row.c[3]?.v || "Check Amazon";
 
       const category = row.c[4]?.v || "Other";
 
