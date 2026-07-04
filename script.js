@@ -16,18 +16,18 @@ async function loadProducts() {
     grid.innerHTML = "";
 
     rows.forEach((row) => {
+
       const title = row.c[0]?.v || "Product";
-      const image = row.c[1]?.v || "https://picsum.photos/500/500";
+      const image = row.c[1]?.v || "https://picsum.photos/500";
       const link = row.c[2]?.v || "#";
 
-      let price = "Check Amazon";
+      const priceValue = row.c[3]?.v;
+      const price = priceValue ? "$" + priceValue : "Check Amazon";
 
-      if (row.c[3]) {
-        price = row.c[3].f || "$" + row.c[3].v;
-      }
+      const category = row.c[4]?.v || "Other";
 
       grid.innerHTML += `
-        <div class="card">
+        <div class="card" data-category="${category}">
           <img src="${image}" alt="${title}">
           <div class="card-content">
             <h3>${title}</h3>
@@ -42,17 +42,14 @@ async function loadProducts() {
 
   } catch (error) {
     console.error(error);
-
-    grid.innerHTML = `
-      <h3 style="text-align:center;padding:30px;">
-        Products failed to load
-      </h3>
-    `;
+    grid.innerHTML =
+      "<h3 style='text-align:center'>Products failed to load</h3>";
   }
 }
 
-/* Search Products */
+/* Search */
 document.addEventListener("input", function(e) {
+
   if (e.target.id === "searchInput") {
 
     const value = e.target.value.toLowerCase();
@@ -61,14 +58,35 @@ document.addEventListener("input", function(e) {
 
       const title = card.querySelector("h3").textContent.toLowerCase();
 
-      if (title.includes(value)) {
+      card.style.display =
+        title.includes(value) ? "block" : "none";
+
+    });
+  }
+});
+
+/* Category Filter */
+document.addEventListener("click", function(e) {
+
+  if (e.target.classList.contains("category")) {
+
+    const selected = e.target.dataset.category;
+
+    document.querySelectorAll(".card").forEach(card => {
+
+      if (
+        selected === "All" ||
+        card.dataset.category === selected
+      ) {
         card.style.display = "block";
       } else {
         card.style.display = "none";
       }
 
     });
+
   }
+
 });
 
 document.addEventListener("DOMContentLoaded", loadProducts);
