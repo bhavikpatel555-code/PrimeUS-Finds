@@ -1,5 +1,7 @@
 const SHEET_ID = "1r7iY0sippv8hpAHNbYMuMDGEWzfN_xm4CFcv2RXzUG8";
 
+let allProducts = [];
+
 async function loadProducts() {
   const grid = document.getElementById("product-grid");
 
@@ -11,34 +13,9 @@ async function loadProducts() {
     const text = await response.text();
     const json = JSON.parse(text.substring(47).slice(0, -2));
 
-    const rows = json.table.rows;
+    allProducts = json.table.rows;
 
-    grid.innerHTML = "";
-
-    rows.forEach((row) => {
-
-      const title = row.c[0]?.v || "Product";
-      const image = row.c[1]?.v || "https://picsum.photos/500";
-      const link = row.c[2]?.v || "#";
-
-      const priceValue = row.c[3]?.v;
-      const price = row.c[3]?.f || row.c[3]?.v || "Check Amazon";
-
-      const category = row.c[4]?.v || "Other";
-
-      grid.innerHTML += `
-        <div class="card" data-category="${category}">
-          <img src="${image}" alt="${title}">
-          <div class="card-content">
-            <h3>${title}</h3>
-            <p class="price">${price}</p>
-            <a href="${link}" target="_blank" rel="noopener noreferrer" class="btn">
-              View on Amazon
-            </a>
-          </div>
-        </div>
-      `;
-    });
+    displayProducts(allProducts);
 
   } catch (error) {
     console.error(error);
@@ -47,44 +24,70 @@ async function loadProducts() {
   }
 }
 
-/* Search */
-document.addEventListener("input", function(e) {
+function displayProducts(rows) {
+  const grid = document.getElementById("product-grid");
 
-  if (e.target.id === "searchInput") {
+  grid.innerHTML = "";
+
+  rows.forEach((row) => {
+
+    const title = row.c[0]?.v || "Product";
+    const image = row.c[1]?.v || "https://picsum.photos/500";
+    const link = row.c[2]?.v || "#";
+    const price = row.c[3]?.v || "Check Amazon";
+    const category = row.c[4]?.v || "";
+
+    grid.innerHTML += `
+      <div class="card" data-category="${category}">
+        <img src="${image}" alt="${title}">
+        <div class="card-content">
+          <h3>${title}</h3>
+          <p class="price">${price}</p>
+          <a href="${link}" target="_blank" rel="noopener noreferrer" class="btn">
+            View on Amazon
+          </a>
+        </div>
+      </div>
+    `;
+  });
+}
+
+// Search
+document.addEventListener("input", function(e){
+
+  if(e.target.id === "searchInput"){
 
     const value = e.target.value.toLowerCase();
 
-    document.querySelectorAll(".card").forEach(card => {
-
-      const title = card.querySelector("h3").textContent.toLowerCase();
-
-      card.style.display =
-        title.includes(value) ? "block" : "none";
-
+    const filtered = allProducts.filter(row => {
+      const title = row.c[0]?.v?.toLowerCase() || "";
+      return title.includes(value);
     });
+
+    displayProducts(filtered);
   }
+
 });
 
-/* Category Filter */
-document.addEventListener("click", function(e) {
+// Category Filter
+document.addEventListener("click", function(e){
 
-  if (e.target.classList.contains("category")) {
+  if(e.target.dataset.category){
 
-    const selected = e.target.dataset.category;
+    e.preventDefault();
 
-    document.querySelectorAll(".card").forEach(card => {
+    const category = e.target.dataset.category;
 
-      if (
-        selected === "All" ||
-        card.dataset.category === selected
-      ) {
-        card.style.display = "block";
-      } else {
-        card.style.display = "none";
-      }
+    if(category === "All"){
+      displayProducts(allProducts);
+      return;
+    }
 
+    const filtered = allProducts.filter(row => {
+      return row.c[4]?.v === category;
     });
 
+    displayProducts(filtered);
   }
 
 });
