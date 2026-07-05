@@ -34,7 +34,7 @@ function displayProducts(rows) {
     const title = row.c[0]?.v || "Product";
     const image = row.c[1]?.v || "https://picsum.photos/500";
     const link = row.c[2]?.v || "#";
-    const price = row.c[3]?.f || "$" + row.c[3]?.v || "Check Amazon";
+    const price = row.c[3]?.f || "Check Amazon";
     const category = row.c[4]?.v || "";
 
     grid.innerHTML += `
