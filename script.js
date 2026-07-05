@@ -42,7 +42,7 @@ function displayProducts(rows) {
         <img src="${image}" alt="${title}">
         <div class="card-content">
           <h3>${title}</h3>
-          <p class="price">$${price}</p>
+          <p class="price">${price}</p>
           <a href="${link}" target="_blank" rel="noopener noreferrer" class="btn">
             View on Amazon
           </a>
