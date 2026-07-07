@@ -51,7 +51,7 @@ function displayProducts(rows) {
 ✓ Fast Amazon Delivery
 </p>
 
-<p class="price">$${price}</p>
+<p class="price">${price}</p>
 
 <a href="${link}" target="_blank" rel="noopener noreferrer" class="btn">
   Check Price On Amazon
