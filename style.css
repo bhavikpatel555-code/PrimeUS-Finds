@@ -301,3 +301,67 @@ font-size:17px;
 color:#555;
 line-height:1.6;
 }
+/* BEST SELLER Badge */
+.badge{
+display:inline-block;
+background:#ff4d00;
+color:#fff;
+font-size:12px;
+font-weight:700;
+padding:5px 10px;
+border-radius:20px;
+margin-bottom:10px;
+text-transform:uppercase;
+letter-spacing:.5px;
+}
+
+/* Rating */
+.rating{
+color:#ff9900;
+font-size:15px;
+font-weight:600;
+margin:10px 0;
+}
+
+/* Product Features */
+.features{
+list-style:none;
+padding:0;
+margin:12px 0;
+}
+
+.features li{
+font-size:14px;
+color:#555;
+margin-bottom:6px;
+}
+
+/* Price */
+.price{
+font-size:30px;
+font-weight:700;
+color:#B12704;
+margin-top:15px;
+margin-bottom:18px;
+}
+
+/* Button */
+.btn{
+display:block;
+width:100%;
+background:linear-gradient(90deg,#FF9900,#FFC107);
+color:#111;
+text-align:center;
+padding:14px;
+border-radius:30px;
+text-decoration:none;
+font-size:16px;
+font-weight:700;
+transition:.3s;
+box-shadow:0 4px 12px rgba(255,153,0,.35);
+}
+
+.btn:hover{
+transform:translateY(-3px);
+box-shadow:0 8px 20px rgba(255,153,0,.45);
+}
