@@ -44,10 +44,15 @@ function displayProducts(rows) {
         <div class="badge">🔥 BEST SELLER</div>
           <h3>${title}</h3>
 
-<p style="color:#ff9900;font-weight:bold;">
+<div class="rating">
 ⭐⭐⭐⭐⭐ 4.8 (2,184 Reviews)
-</p>
+</div>
 
+<ul class="features">
+<li>✓ Top Rated Product</li>
+<li>✓ Great Value For Money</li>
+<li>✓ Fast Amazon Delivery</li>
+</ul>
 <p>
 ✓ Top Rated Product<br>
 ✓ Great Value For Money<br>
