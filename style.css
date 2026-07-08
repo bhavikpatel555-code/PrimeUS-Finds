@@ -257,5 +257,22 @@ font-size:34px;
 .hero p{
 font-size:16px;
 }
+.trust-bar{
+display:flex;
+justify-content:center;
+align-items:center;
+gap:20px;
+flex-wrap:wrap;
+background:#ffffff;
+padding:18px;
+margin:20px;
+border-radius:15px;
+box-shadow:0 5px 15px rgba(0,0,0,.08);
+font-size:15px;
+font-weight:600;
+}
 
+.trust-bar div{
+padding:8px 15px;
+}
 }
