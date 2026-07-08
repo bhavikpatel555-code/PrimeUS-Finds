@@ -44,7 +44,9 @@ function displayProducts(rows) {
         <div class="badge">🔥 BEST SELLER</div>
           <h3>${title}</h3>
 
-<p>⭐⭐⭐⭐⭐ 4.7/5</p>
+<p style="color:#ff9900;font-weight:bold;">
+⭐⭐⭐⭐⭐ 4.8 (2,184 Reviews)
+</p>
 
 <p>
 ✓ Top Rated Product<br>
