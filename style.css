@@ -35,12 +35,11 @@ top:0;
 z-index:100;
 }
 
-..logo{
-font-size:34px;
+.logo{
+font-size:36px;
 font-weight:800;
 color:#556b2f;
 letter-spacing:-1px;
-cursor:pointer;
 }
 .search{
 width:50%;
