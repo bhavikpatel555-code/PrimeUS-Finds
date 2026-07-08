@@ -13,12 +13,13 @@ color:#222;
 
 /* Top Bar */
 .topbar{
-background:#556b2f;
+background:linear-gradient(90deg,#ff9900,#ff6a00);
 color:white;
 text-align:center;
-padding:10px;
-font-size:14px;
-font-weight:bold;
+padding:12px;
+font-size:15px;
+font-weight:700;
+letter-spacing:.5px;
 }
 
 /* Header */
