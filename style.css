@@ -193,10 +193,9 @@ height:100%;
 .card-content h3{
 font-size:19px;
 font-weight:600;
-line-height:1.4;
-margin-bottom:10px;
-height:82px;
-overflow:hidden;
+line-height:1.5;
+margin-bottom:12px;
+min-height:90px;
 }
 
 .price{
