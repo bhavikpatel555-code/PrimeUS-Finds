@@ -41,6 +41,7 @@ function displayProducts(rows) {
       <div class="card" data-category="${category}">
         <img src="${image}" alt="${title}">
         <div class="card-content">
+        <div class="badge">🔥 BEST SELLER</div>
           <h3>${title}</h3>
 
 <p>⭐⭐⭐⭐⭐ 4.7/5</p>
