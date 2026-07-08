@@ -155,6 +155,10 @@ overflow:hidden;
 border:1px solid #ececec;
 box-shadow:0 8px 25px rgba(0,0,0,.08);
 transition:all .35s ease;
+
+padding-bottom:20px;
+display:flex;
+flex-direction:column;
 }
 
 .card:hover{
