@@ -42,12 +42,19 @@ color:#556b2f;
 letter-spacing:-1px;
 cursor:pointer;
 }
-
 .search{
 width:50%;
-padding:12px;
-border:1px solid #ddd;
-border-radius:8px;
+padding:14px 18px;
+border:2px solid #e5e5e5;
+border-radius:30px;
+font-size:15px;
+outline:none;
+transition:.3s;
+}
+
+.search:focus{
+border-color:#FF9900;
+box-shadow:0 0 12px rgba(255,153,0,.25);
 }
 
 /* Navigation */
