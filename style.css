@@ -340,3 +340,44 @@ transform:translateY(-5px);
 background:#ff9900;
 color:white;
 }
+/* Featured Deal */
+
+.featured-deal{
+background:linear-gradient(135deg,#ff9900,#ff6a00);
+color:white;
+padding:35px;
+margin:25px;
+border-radius:18px;
+text-align:center;
+box-shadow:0 10px 25px rgba(0,0,0,.15);
+}
+
+.featured-deal img{
+width:220px;
+max-width:100%;
+border-radius:15px;
+margin:20px 0;
+background:#fff;
+padding:10px;
+}
+
+.featured-deal h2{
+font-size:34px;
+margin-bottom:10px;
+}
+
+.featured-deal h3{
+font-size:24px;
+margin-bottom:10px;
+}
+
+.featured-deal p{
+font-size:18px;
+margin-bottom:20px;
+}
+
+.featured-deal .btn{
+display:inline-block;
+width:auto;
+padding:14px 28px;
+}
