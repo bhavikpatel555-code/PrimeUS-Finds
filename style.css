@@ -308,3 +308,35 @@ font-size:28px;
 }
 
 }
+.country-banner{
+background:#0d6efd;
+color:white;
+text-align:center;
+padding:20px;
+border-radius:12px;
+margin:20px;
+}
+
+.quick-links{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+gap:15px;
+margin:20px;
+}
+
+.quick-card{
+background:#fff;
+padding:18px;
+text-align:center;
+border-radius:12px;
+font-weight:bold;
+box-shadow:0 4px 12px rgba(0,0,0,.1);
+cursor:pointer;
+transition:.3s;
+}
+
+.quick-card:hover{
+transform:translateY(-5px);
+background:#ff9900;
+color:white;
+}
