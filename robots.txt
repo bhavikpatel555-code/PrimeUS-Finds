@@ -1,4 +1,27 @@
+# robots.txt for PrimeUSFinds
+# Tell search engines to crawl your site and find the sitemap
+
 User-agent: *
 Allow: /
+Disallow: /admin
+Disallow: /private
+Disallow: /temp
 
+# Specific rules for major search engines
+
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Slurp
+Allow: /
+
+# Point to your sitemap
 Sitemap: https://prime-us-finds.vercel.app/sitemap.xml
+
+# Crawl delay (in seconds) - be respectful to server
+Crawl-delay: 1
