@@ -3,9 +3,11 @@ const SHEET_ID = "1r7iY0sippv8hpAHNbYMuMDGEWzfN_xm4CFcv2RXzUG8";
 let allProducts = [];
 
 async function loadProducts() {
+
   const grid = document.getElementById("product-grid");
 
   try {
+
     const response = await fetch(
       `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json`
     );
@@ -16,29 +18,20 @@ async function loadProducts() {
     allProducts = json.table.rows;
 
     displayProducts(allProducts);
-    function filterByPrice(maxPrice){
-
-const filtered = allProducts.filter(row=>{
-
-const priceText = row.c[3]?.f || "";
-const price = parseFloat(priceText.replace("$","").replace(",",""));
-
-return !isNaN(price) && price <= maxPrice;
-
-});
-
-displayProducts(filtered);
-
-    }
 
   } catch (error) {
+
     console.error(error);
+
     grid.innerHTML =
       "<h3 style='text-align:center'>Products failed to load</h3>";
+
   }
+
 }
 
 function displayProducts(rows) {
+
   const grid = document.getElementById("product-grid");
 
   grid.innerHTML = "";
@@ -53,36 +46,53 @@ function displayProducts(rows) {
 
     grid.innerHTML += `
       <div class="card" data-category="${category}">
+
         <img src="${image}" alt="${title}">
+
         <div class="card-content">
-        <div class="badge">🔥 BEST SELLER</div>
+
+          <div class="badge">🔥 BEST SELLER</div>
+
           <h3>${title}</h3>
 
-<div class="rating">
-⭐⭐⭐⭐⭐ 4.8 (2,184 Reviews)
-</div>
+          <div class="rating">
+          ⭐⭐⭐⭐⭐ 4.8 (2,184 Reviews)
+          </div>
 
-<ul class="features">
-<li>✓ Top Rated Product</li>
-<li>✓ Great Value For Money</li>
-<li>✓ Fast Amazon Delivery</li>
-</ul>
-<p>
-✓ Top Rated Product<br>
-✓ Great Value For Money<br>
-✓ Fast Amazon Delivery
-</p>
+          <ul class="features">
+            <li>✓ Top Rated Product</li>
+            <li>✓ Great Value For Money</li>
+            <li>✓ Fast Amazon Delivery</li>
+          </ul>
 
-<p class="price">${price}</p>
+          <p class="price">${price}</p>
 
-<a href="${link}" target="_blank" rel="noopener noreferrer" class="btn">
-  Check Price On Amazon
-</a>
- 
+          <a href="${link}" target="_blank" rel="noopener noreferrer" class="btn">
+          Check Price On Amazon
+          </a>
+
         </div>
+
       </div>
     `;
+
   });
+
+}
+
+function filterByPrice(maxPrice){
+
+  const filtered = allProducts.filter((row)=>{
+
+    const priceText = row.c[3]?.f || "";
+    const price = parseFloat(priceText.replace("$","").replace(",",""));
+
+    return !isNaN(price) && price <= maxPrice;
+
+  });
+
+  displayProducts(filtered);
+
 }
 
 // Search
@@ -92,17 +102,21 @@ document.addEventListener("input", function(e){
 
     const value = e.target.value.toLowerCase();
 
-    const filtered = allProducts.filter(row => {
+    const filtered = allProducts.filter(row=>{
+
       const title = row.c[0]?.v?.toLowerCase() || "";
+
       return title.includes(value);
+
     });
 
     displayProducts(filtered);
+
   }
 
 });
 
-// Category Filter
+// Click Events
 document.addEventListener("click", function(e){
 
   if(e.target.dataset.category){
@@ -111,29 +125,34 @@ document.addEventListener("click", function(e){
 
     const category = e.target.dataset.category;
 
-    if(category === "All"){
+    if(category==="All"){
       displayProducts(allProducts);
       return;
     }
-    if(category === "Under25"){
-  filterByPrice(25);
-  return;
-}
 
-if(category === "Under50"){
-  filterByPrice(50);
-  return;
-}
+    if(category==="Under25"){
+      filterByPrice(25);
+      return;
+    }
 
-if(category === "Under100"){
-  filterByPrice(100);
-  return;
-}
-    const filtered = allProducts.filter(row => {
+    if(category==="Under50"){
+      filterByPrice(50);
+      return;
+    }
+
+    if(category==="Under100"){
+      filterByPrice(100);
+      return;
+    }
+
+    const filtered = allProducts.filter(row=>{
+
       return row.c[4]?.v === category;
+
     });
 
     displayProducts(filtered);
+
   }
 
 });
