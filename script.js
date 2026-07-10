@@ -16,6 +16,20 @@ async function loadProducts() {
     allProducts = json.table.rows;
 
     displayProducts(allProducts);
+    function filterByPrice(maxPrice){
+
+const filtered = allProducts.filter(row=>{
+
+const priceText = row.c[3]?.f || "";
+const price = parseFloat(priceText.replace("$","").replace(",",""));
+
+return !isNaN(price) && price <= maxPrice;
+
+});
+
+displayProducts(filtered);
+
+    }
 
   } catch (error) {
     console.error(error);
@@ -101,7 +115,20 @@ document.addEventListener("click", function(e){
       displayProducts(allProducts);
       return;
     }
+    if(category === "Under25"){
+  filterByPrice(25);
+  return;
+}
 
+if(category === "Under50"){
+  filterByPrice(50);
+  return;
+}
+
+if(category === "Under100"){
+  filterByPrice(100);
+  return;
+}
     const filtered = allProducts.filter(row => {
       return row.c[4]?.v === category;
     });
