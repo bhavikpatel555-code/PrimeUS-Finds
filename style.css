@@ -533,3 +533,37 @@ font-size:16px;
 }
 
 }
+/* Today's Top Deals */
+
+.top-deals{
+padding:25px 20px;
+text-align:center;
+}
+
+.top-deals h2{
+margin-bottom:20px;
+font-size:32px;
+}
+
+.top-deals-row{
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:15px;
+}
+
+.deal-item{
+background:#fff;
+padding:15px 22px;
+border-radius:30px;
+font-weight:700;
+cursor:pointer;
+box-shadow:0 5px 15px rgba(0,0,0,.08);
+transition:.3s;
+}
+
+.deal-item:hover{
+background:#ff9900;
+color:#fff;
+transform:translateY(-5px);
+}
