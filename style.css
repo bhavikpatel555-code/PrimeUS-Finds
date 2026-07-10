@@ -353,6 +353,7 @@ border-radius:20px;
 overflow:hidden;
 box-shadow:0 10px 25px rgba(0,0,0,.08);
 transition:.3s;
+cursor:pointer;
 }
 
 .card:hover{
