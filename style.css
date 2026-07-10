@@ -78,7 +78,7 @@ color:#556b2f;
 
 /* Hero */
 .hero{
-height:420px;
+height:300px;
 background:linear-gradient(rgba(0,0,0,.4),rgba(0,0,0,.4)),
 url('https://images.unsplash.com/photo-1513694203232-719a280e022f?w=1600');
 background-size:cover;
@@ -91,7 +91,7 @@ color:#fff;
 }
 
 .hero h1{
-font-size:52px;
+font-size:40px;
 margin-bottom:10px;
 }
 
