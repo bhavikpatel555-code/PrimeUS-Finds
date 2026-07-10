@@ -119,7 +119,9 @@ document.addEventListener("click", function(e){
   if(e.target.dataset.category){
 
     e.preventDefault();
-
+document.getElementById("product-grid").scrollIntoView({
+  behavior: "smooth"
+});
     const category = e.target.dataset.category;
 
     if(category==="All"){
