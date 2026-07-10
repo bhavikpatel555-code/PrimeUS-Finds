@@ -45,7 +45,9 @@ function displayProducts(rows) {
     const category = row.c[4]?.v || "";
 
     grid.innerHTML += `
-      <div class="card" data-category="${category}">
+      <div class="card"
+onclick="window.open('${link}','_blank')"
+data-category="${category}">
         <img src="${image}" alt="${title}">
         <div class="card-content">
 
