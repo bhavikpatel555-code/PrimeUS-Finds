@@ -506,34 +506,34 @@ transform:translateY(-4px);
 
 @media (max-width:768px){
 
+header{
+flex-direction:column;
+gap:10px;
+}
+
+.search{
+width:100%;
+}
+
+.logo{
+font-size:28px;
+}
+
 .hero{
 height:320px;
 padding:20px;
 }
 
 .hero h1{
-font-size:42px;
+font-size:32px;
 line-height:1.2;
 }
 
-.country-banner{
-margin:15px;
-padding:20px;
+.hero p{
+font-size:16px;
 }
 
-.quick-links,
-.live-banner,
-.stats,
-.category-grid,
-.products{
-display:grid;
-grid-template-columns:1fr;
-gap:15px;
 }
-
-.featured-deal{
-margin:15px;
-padding:25px;
 }
 
 }
