@@ -160,3 +160,38 @@ function scrollToProducts() {
     behavior: "smooth"
   });
 }
+// ================= HERO SLIDER =================
+
+let currentSlide = 0;
+
+const slides = document.querySelectorAll(".slide");
+
+function showSlide(index){
+
+slides.forEach((slide)=>{
+slide.classList.remove("active");
+});
+
+slides[index].classList.add("active");
+
+}
+
+function nextSlide(){
+
+currentSlide++;
+
+if(currentSlide >= slides.length){
+currentSlide = 0;
+}
+
+showSlide(currentSlide);
+
+}
+
+if(slides.length > 0){
+
+showSlide(0);
+
+setInterval(nextSlide,4000);
+
+}
