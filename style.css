@@ -447,3 +447,25 @@ margin:15px 0 8px;
 .category-box p{
 font-size:14px;
   }
+.live-banner{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:15px;
+margin:25px;
+}
+
+.live-box{
+background:linear-gradient(135deg,#ff9900,#ff6a00);
+color:#fff;
+padding:18px;
+border-radius:15px;
+font-weight:700;
+text-align:center;
+box-shadow:0 8px 20px rgba(0,0,0,.15);
+transition:.3s;
+cursor:pointer;
+}
+
+.live-box:hover{
+transform:translateY(-6px);
+}
