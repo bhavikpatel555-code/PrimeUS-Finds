@@ -41,14 +41,12 @@ function displayProducts(rows) {
     const title = row.c[0]?.v || "Product";
     const image = row.c[1]?.v || "https://picsum.photos/500";
     const link = row.c[2]?.v || "#";
-    const price = row.c[3]?.f || "Check Amazon";
+    const price = row.c[3]?.f || row.c[3]?.v || "Check Amazon";
     const category = row.c[4]?.v || "";
 
     grid.innerHTML += `
       <div class="card" data-category="${category}">
-
         <img src="${image}" alt="${title}">
-
         <div class="card-content">
 
           <div class="badge">🔥 BEST SELLER</div>
@@ -56,7 +54,7 @@ function displayProducts(rows) {
           <h3>${title}</h3>
 
           <div class="rating">
-          ⭐⭐⭐⭐⭐ 4.8 (2,184 Reviews)
+            ⭐⭐⭐⭐⭐ 4.8 (2,184 Reviews)
           </div>
 
           <ul class="features">
@@ -68,11 +66,10 @@ function displayProducts(rows) {
           <p class="price">${price}</p>
 
           <a href="${link}" target="_blank" rel="noopener noreferrer" class="btn">
-          Check Price On Amazon
+            Check Price On Amazon
           </a>
 
         </div>
-
       </div>
     `;
 
@@ -84,8 +81,8 @@ function filterByPrice(maxPrice){
 
   const filtered = allProducts.filter((row)=>{
 
+    const priceText = (row.c[3]?.f || row.c[3]?.v || "").toString();
     const price = parseFloat(priceText.replace(/[^0-9.]/g, ""));
-    const price = parseFloat(priceText.replace("$","").replace(",",""));
 
     return !isNaN(price) && price <= maxPrice;
 
