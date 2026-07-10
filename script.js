@@ -155,3 +155,8 @@ document.addEventListener("click", function(e){
 });
 
 document.addEventListener("DOMContentLoaded", loadProducts);
+function scrollToProducts() {
+  document.getElementById("product-grid").scrollIntoView({
+    behavior: "smooth"
+  });
+}
