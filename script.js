@@ -84,7 +84,7 @@ function filterByPrice(maxPrice){
 
   const filtered = allProducts.filter((row)=>{
 
-    const priceText = (row.c[3]?.f || row.c[3]?.v || "").toString();
+    const price = parseFloat(priceText.replace(/[^0-9.]/g, ""));
     const price = parseFloat(priceText.replace("$","").replace(",",""));
 
     return !isNaN(price) && price <= maxPrice;
