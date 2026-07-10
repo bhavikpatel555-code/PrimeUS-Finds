@@ -469,3 +469,36 @@ cursor:pointer;
 .live-box:hover{
 transform:translateY(-6px);
 }
+.popular-searches{
+margin:40px 20px;
+text-align:center;
+}
+
+.popular-searches h2{
+margin-bottom:20px;
+font-size:30px;
+}
+
+.budget-buttons{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:15px;
+}
+
+.budget-buttons button{
+padding:15px 25px;
+border:none;
+border-radius:30px;
+background:#ff9900;
+color:#fff;
+font-size:16px;
+font-weight:700;
+cursor:pointer;
+transition:.3s;
+}
+
+.budget-buttons button:hover{
+background:#ff6a00;
+transform:translateY(-4px);
+}
