@@ -656,7 +656,7 @@ max-width:700px;
 margin:auto;
 }
 
-.slide{
+.trend-slide{
 background:#fff;
 color:#222;
 padding:30px;
@@ -664,12 +664,12 @@ border-radius:18px;
 box-shadow:0 10px 25px rgba(0,0,0,.15);
 }
 
-.slide h3{
+.trend-slide h3{
 font-size:26px;
 margin-bottom:15px;
 }
 
-.slide p{
+.trend-slide p{
 font-size:18px;
 margin-bottom:20px;
 line-height:1.6;
