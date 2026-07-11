@@ -622,3 +622,16 @@ text-align:center;
 margin:40px 0 30px;
 font-weight:700;
 }
+.article-badge{
+position:absolute;
+top:15px;
+left:15px;
+background:#ff3b30;
+color:#fff;
+padding:8px 14px;
+border-radius:25px;
+font-size:13px;
+font-weight:700;
+z-index:10;
+box-shadow:0 5px 15px rgba(0,0,0,.25);
+}
