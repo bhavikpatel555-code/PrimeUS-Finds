@@ -781,3 +781,40 @@ color:#222;
 transform:translateY(-8px);
 box-shadow:0 15px 30px rgba(0,0,0,.15);
 }
+.featured-banner{
+background:linear-gradient(135deg,#ff6b35,#ff9800);
+color:white;
+text-align:center;
+padding:70px 20px;
+border-radius:20px;
+margin:50px auto;
+max-width:1200px;
+}
+
+.featured-banner h2{
+font-size:40px;
+margin-bottom:15px;
+}
+
+.featured-banner p{
+font-size:20px;
+margin-bottom:30px;
+opacity:.95;
+}
+
+.featured-banner .btn{
+background:white;
+color:#ff6b35;
+padding:15px 35px;
+border-radius:50px;
+font-size:18px;
+font-weight:bold;
+text-decoration:none;
+display:inline-block;
+transition:.3s;
+}
+
+.featured-banner .btn:hover{
+transform:translateY(-4px);
+box-shadow:0 10px 25px rgba(0,0,0,.2);
+}
