@@ -17,7 +17,14 @@ async function loadProducts() {
 
     allProducts = json.table.rows;
 
-    displayProducts(allProducts);
+    const featuredProducts = allProducts.filter(row => {
+  return row.c[5]?.v === "YES" && row.c[6]?.v === "July-August";
+});
+
+displayProducts([
+  ...featuredProducts,
+  ...allProducts.filter(row => row.c[5]?.v !== "YES")
+]);
 
   } catch (error) {
 
